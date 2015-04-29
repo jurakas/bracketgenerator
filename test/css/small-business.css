@@ -1,0 +1,118 @@
+/*!
+ * Start Bootstrap - Small Business HTML Template (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+
+
+body {
+    padding-top: 70px; /* Required padding for .navbar-fixed-top. Change if height of navigation changes. */
+}
+
+.navbar-fixed-top .nav {
+    padding: 15px 0;
+}
+
+.navbar-fixed-top .navbar-brand {
+    padding: 0 15px;
+}
+
+footer {
+    padding: 30px 0;
+}
+
+@media(min-width:768px) {
+    body {
+        padding-top: 100px; /* Required padding for .navbar-fixed-top. Change if height of navigation changes. */
+    }
+
+    .navbar-fixed-top .navbar-brand {
+        padding: 15px 0;
+    }
+
+ .stripeBOT{
+     border-bottom: 1px solid #000;
+ }
+
+ .stripeUP{
+     border-left: 1px solid #000;
+ }
+
+ .stripeDOWN{
+     border-right: 1px solid #000;
+ }
+
+ .stripeTOP{
+     border-top: 1px solid #000;
+ }
+
+ .spacer{
+     margin-top: 10px;
+ }
+
+ .colmaker{
+     margin-right: 1px;
+ }
+.nobr { 
+    white-space: nowrap;
+
+}
+.whitetext{
+    color: white;
+}
+.dropdown{
+    text-align: right;
+    font-weight: bold;
+}
+.fromdown{
+    text-align: left;
+    font-weight: bold;
+}
+.field{
+    margin-left: 10px;
+	border-radius:5px;
+}
+}
+.tableStyle{
+    width: 30%;
+}
+tr.spaceUnder > td{
+    padding-bottom: 1em;
+    
+}
+
+tr.groupTableName > td{
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    padding-left: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-right: 50px;
+    width: 180px;
+    height: 80px;
+}
+
+tr.groupTableRows > td{
+    border-right: 1px solid #000;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    width: 80px;
+    height: 80px;
+}
+
+.groupTableRowsBACK{
+    border-right: 1px solid #000;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    width: 80px;
+    height: 80px;
+    background-color: grey;
+}
+
+.nametext{
+    font-family: Verdana;
+}
+}

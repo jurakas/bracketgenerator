@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="auto-generator for tournament brackets">
+    <meta name="author" content="Kevin Kattai">
+
+    <title>Bracket Generator</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/small-business.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script src="loadnames.js"></script>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">
+                    <img src="LOGO.png" width="80px" height="60px" alt="">
+                </a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="index.html">About</a>
+                    </li>
+                    <li>
+                        <a href="genmain.html">Generator</a>
+                    </li>
+                    <li>
+                        <a href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+        <!-- 1 -->
+        <div class="row">
+            <div class="col-xs-1 colmaker"></div>
+            <div class="col-xs-1 colmaker"></div>
+            <div class="col-xs-1 colmaker"></div>
+            <div class="col-xs-1 colmaker"></div>
+            <div class="col-xs-1 stripeBOT colmaker nobr whitetext">&nbsp</div>
+            <div id="MAIN" class="col-xs-1 stripeBOT stripeDOWN stripeUP stripeTOP colmaker nobr">MAINCOL</div>
+            <div class="col-xs-1 stripeBOT colmaker nobr whitetext">WB1</div>
+            <div class="col-xs-1 colmaker"></div>
+            <div class="col-xs-1 colmaker"></div>
+            <div class="col-xs-1 colmaker"></div>
+            <div class="col-xs-1 colmaker"></div>
+            
+        </div>
+        <!-- 2 -->
+        <div class="row">
+            <div class="col-xs-1 colmaker"></div>
+            <div class="col-xs-1 stripeBOT colmaker nobr whitetext">LB1</div>
+            <div class="col-xs-1 colmaker"><b>F</b></div>
+            <div class="col-xs-1 stripeBOT colmaker nobr whitetext">LB1</div>
+            <div class="col-xs-1 colmaker stripeUP whitetext">BYE</div>
+            <div id="MAIN" class="col-xs-1 stripeBOT stripeDOWN stripeUP colmaker nobr">MAINCOL</div>
+            <div class="col-xs-1 colmaker stripeDOWN dropdown">A</div>
+            <div class="col-xs-1 stripeBOT colmaker nobr whitetext">VF1</div>
+            <div class="col-xs-1 colmaker"></div>
+            <div class="col-xs-1 colmaker"></div>
+            <div class="col-xs-1 colmaker"></div>
+        </div>
+        <!-- 3 -->
+        <div class="row">
+            <div class="col-xs-1 colmaker"></div>
+            <div class="col-xs-1 colmaker stripeUP whitetext">BYE</div>
+            <div class="col-xs-1 stripeBOT colmaker nobr whitetext">LB1</div>
+            <div class="col-xs-1 colmaker stripeUP whitetext">BYE</div>
+            <div class="col-xs-1 stripeBOT stripeUP colmaker nobr whitetext">.</div>
+            <div id="MAIN" class="col-xs-1 stripeBOT stripeDOWN stripeUP colmaker nobr">MAINCOL</div>
+            <div class="col-xs-1 colmaker stripeBOT stripeDOWN nobr whitetext">WB2</div>
+            <div class="col-xs-1 colmaker stripeDOWN whitetext">BYE</div>
+            <div class="col-xs-1 colmaker"></div>
+            <div class="col-xs-1 colmaker"></div>
+            <div class="col-xs-1 colmaker"></div>   
+        </div>
+        <!-- 4 -->
+        <div class="row">
+            <div class="col-xs-1 stripeBOT colmaker nobr whitetext">LB1</div>
+            <div class="col-xs-1 colmaker stripeUP"><b>-2</b></div>
+            <div class="col-xs-1 colmaker stripeUP whitetext">BYE</div>
+            <div class="col-xs-1 stripeBOT stripeUP colmaker nobr whitetext">. </div>
+            <div class="col-xs-1 colmaker"><b>D</b></div>
+            <div id="MAIN" class="col-xs-1 stripeBOT stripeDOWN stripeUP colmaker nobr">MAINCOL</div>
+            <div class="col-xs-1 colmaker"></div>
+            <div class="col-xs-1 colmaker stripeDOWN dropdown">E</div>
+            <div class="col-xs-1 stripeBOT colmaker nobr whitetext">SF1</div>
+            <div class="col-xs-1 colmaker"></div>
+            <div class="col-xs-1 colmaker"></div>
+        </div>
+        <!-- 5 -->
+        <div class="row">
+            <div class="col-xs-1 colmaker"></div>
+            <div class="col-xs-1 stripeBOT stripeUP colmaker nobr whitetext">LB2</div>
+            <div class="col-xs-1 colmaker stripeUP whitetext">BYE</div>
+            <div class="col-xs-1 colmaker"></div>
+            <div class="col-xs-1 stripeBOT colmaker nobr whitetext">LB1</div>
+            <div id="MAIN" class="col-xs-1 stripeBOT stripeDOWN stripeUP colmaker nobr">MAINCOL</div>
+            <div class="col-xs-1 stripeBOT colmaker nobr whitetext">WB3</div>
+            <div class="col-xs-1 colmaker stripeDOWN whitetext">BYE</div>
+            <div class="col-xs-1 colmaker stripeDOWN whitetext">BYE</div>
+            <div class="col-xs-1 colmaker"></div>
+            <div class="col-xs-1 colmaker"></div>
+        </div>
+        <!-- 6 -->
+        <div class="row">
+            <div class="col-xs-1 colmaker"></div>
+            <div class="col-xs-1 colmaker"></div>
+            <div class="col-xs-1 colmaker stripeUP whitetext">BYE</div>
+            <div class="col-xs-1 stripeBOT colmaker nobr whitetext">LB1</div>
+            <div class="col-xs-1 colmaker stripeUP whitetext">BYE</div>
+            <div id="MAIN" class="col-xs-1 stripeBOT stripeDOWN stripeUP colmaker nobr">MAINCOL</div>
+            <div class="col-xs-1 colmaker stripeDOWN dropdown">B</div>
+            <div class="col-xs-1 stripeBOT stripeDOWN colmaker nobr whitetext">VF2</div>
+            <div class="col-xs-1 colmaker stripeDOWN whitetext">BYE</div>
+            <div class="col-xs-1 stripeBOT colmaker nobr whitetext">F1</div>
+            <div class="col-xs-1 colmaker"></div>
+        </div>
+        <!-- 7 -->
+        <div class="row">
+            <div class="col-xs-1 colmaker"></div>
+            <div class="col-xs-1 colmaker"></div>
+            <div class="col-xs-1 stripeBOT stripeUP colmaker nobr whitetext">LB2</div>
+            <div class="col-xs-1 colmaker stripeUP whitetext">BYE</div>
+            <div class="col-xs-1 stripeBOT stripeUP colmaker nobr whitetext">LB2</div>
+            <div id="MAIN" class="col-xs-1 stripeBOT stripeDOWN stripeUP colmaker nobr">MAINCOL</div>
+            <div class="col-xs-1 stripeBOT colmaker nobr stripeDOWN whitetext">WB4</div>
+            <div class="col-xs-1 colmaker"></div>
+            <div class="col-xs-1 colmaker stripeDOWN whitetext">BYE</div>
+            <div class="col-xs-1 colmaker stripeDOWN whitetext">BYE</div>
+            <div class="col-xs-1 colmaker"></div>
+        </div>
+        <!-- 8 -->
+        <div class="row">
+            <div class="col-xs-1 colmaker"></div>
+            <div class="col-xs-1 colmaker"></div>
+            <div class="col-xs-1 colmaker"></div>
+            <div class="col-xs-1 stripeBOT stripeUP colmaker nobr whitetext">LB2</div>
+            <div class="col-xs-1 colmaker"><b>C</b></div>
+            <div id="MAIN" class="col-xs-1 stripeBOT stripeDOWN stripeUP colmaker nobr">MAINCOL</div>
+            <div class="col-xs-1 colmaker"></div>
+            <div class="col-xs-1 colmaker"></div>
+            <div class="col-xs-1 stripeBOT stripeDOWN colmaker nobr whitetext">SF2</div>
+            <div class="col-xs-1 colmaker stripeDOWN whitetext">BYE</div>
+            <div class="col-xs-1 colmaker"></div>
+        </div>
+        <!-- 9 -->
+        <div class="row">
+            <div class="col-xs-1 colmaker"></div>
+            <div class="col-xs-1 colmaker"></div>
+            <div class="col-xs-1 colmaker"></div>
+            <div class="col-xs-1 colmaker"></div>
+            <div class="col-xs-1 stripeBOT colmaker nobr whitetext">LB1</div>
+            <div id="MAIN" class="col-xs-1 stripeBOT stripeDOWN stripeUP colmaker nobr">MAINCOL</div>
+            <div class="col-xs-1 stripeBOT colmaker nobr whitetext">WB5</div>
+            <div class="col-xs-1 colmaker"></div>
+            <div class="col-xs-1 colmaker fromdown">-1</div>
+            <div class="col-xs-1 colmaker stripeDOWN whitetext">BYE</div>
+            <div class="col-xs-1 colmaker"></div>
+        </div>
+        <!-- 10 -->
+        <div class="row">
+            <div class="col-xs-1 colmaker"></div>
+            <div class="col-xs-1 stripeBOT colmaker nobr whitetext">LB1</div>
+            <div class="col-xs-1 colmaker"><b>E</b></div>
+            <div class="col-xs-1 stripeBOT colmaker nobr whitetext">LB1</div>
+            <div class="col-xs-1 colmaker stripeUP whitetext">BYE</div>
+            <div id="MAIN" class="col-xs-1 stripeBOT stripeDOWN stripeUP colmaker nobr">MAINCOL</div>
+            <div class="col-xs-1 colmaker stripeDOWN dropdown">C</div>
+            <div class="col-xs-1 stripeBOT colmaker nobr whitetext">VF3</div>
+            <div class="col-xs-1 colmaker"></div>
+            <div class="col-xs-1 colmaker stripeDOWN whitetext">BYE</div>
+            <div class="col-xs-1 stripeBOT colmaker nobr whitetext">W</div>
+        </div>
+        <!-- 11 -->
+        <div class="row">
+            <div class="col-xs-1 colmaker"></div>
+            <div class="col-xs-1 colmaker stripeUP whitetext">BYE</div>
+            <div class="col-xs-1 stripeBOT colmaker nobr whitetext">LB1</div>
+            <div class="col-xs-1 colmaker stripeUP whitetext">BYE</div>
+            <div class="col-xs-1 stripeBOT stripeUP colmaker nobr whitetext">LB2</div>
+            <div id="MAIN" class="col-xs-1 stripeBOT stripeDOWN stripeUP colmaker nobr">MAINCOL</div>
+            <div class="col-xs-1 colmaker stripeBOT stripeDOWN nobr whitetext">WB6</div>
+            <div class="col-xs-1 colmaker stripeDOWN whitetext">BYE</div>
+            <div class="col-xs-1 colmaker"></div>
+            <div class="col-xs-1 colmaker stripeDOWN whitetext">BYE</div>
+            <div class="col-xs-1 colmaker"></div>
+        </div>
+        <!-- 12 -->
+        <div class="row">
+            <div class="col-xs-1 stripeBOT colmaker nobr whitetext">LB1</div>
+            <div class="col-xs-1 colmaker stripeUP"><b>-1</b></div>
+            <div class="col-xs-1 colmaker stripeUP whitetext">BYE</div>
+            <div class="col-xs-1 stripeBOT stripeUP colmaker nobr whitetext">LB2</div>
+            <div class="col-xs-1 colmaker"><b>B</b></div>
+            <div id="MAIN" class="col-xs-1 stripeBOT stripeDOWN stripeUP colmaker nobr">MAINCOL</div>
+            <div class="col-xs-1 colmaker"></div>
+            <div class="col-xs-1 colmaker stripeDOWN dropdown">F</div>
+            <div class="col-xs-1 stripeBOT colmaker nobr whitetext">SF3</div>
+            <div class="col-xs-1 colmaker stripeDOWN whitetext">BYE</div>
+            <div class="col-xs-1 colmaker"></div>
+        </div>
+        <!-- 13 -->
+        <div class="row">
+            <div class="col-xs-1 colmaker"></div>
+            <div class="col-xs-1 stripeBOT stripeUP colmaker nobr whitetext">LB2</div>
+            <div class="col-xs-1 colmaker stripeUP whitetext">BYE</div>
+            <div class="col-xs-1 colmaker"></div>
+            <div class="col-xs-1 stripeBOT colmaker nobr whitetext">LB1</div>
+            <div id="MAIN" class="col-xs-1 stripeBOT stripeDOWN stripeUP colmaker nobr">MAINCOL</div>
+            <div class="col-xs-1 stripeBOT colmaker nobr whitetext">WB7</div>
+            <div class="col-xs-1 colmaker stripeDOWN whitetext">BYE</div>
+            <div class="col-xs-1 colmaker stripeDOWN whitetext">BYE</div>
+            <div class="col-xs-1 colmaker stripeDOWN whitetext">BYE</div>
+            <div class="col-xs-1 colmaker"></div>
+        </div>
+        <!-- 14 -->
+        <div class="row">
+            <div class="col-xs-1 colmaker"></div>
+            <div class="col-xs-1 colmaker"></div>
+            <div class="col-xs-1 colmaker stripeUP whitetext">BYE</div>
+            <div class="col-xs-1 stripeBOT colmaker nobr whitetext">LB1</div>
+            <div class="col-xs-1 colmaker stripeUP whitetext">BYE</div>
+            <div id="MAIN" class="col-xs-1 stripeBOT stripeDOWN stripeUP colmaker nobr">MAINCOL</div>
+            <div class="col-xs-1 colmaker stripeDOWN dropdown">D</div>
+            <div class="col-xs-1 stripeBOT stripeDOWN colmaker nobr whitetext">VF4</div>
+            <div class="col-xs-1 colmaker stripeDOWN whitetext">BYE</div>
+            <div class="col-xs-1 stripeBOT stripeDOWN colmaker nobr whitetext">F2</div>
+            <div class="col-xs-1 colmaker"></div>
+        </div>
+        <!-- 15 -->
+        <div class="row">
+            <div class="col-xs-1 colmaker"></div>
+            <div class="col-xs-1 colmaker"></div>
+            <div class="col-xs-1 stripeBOT stripeUP colmaker nobr whitetext">LB1</div>
+            <div class="col-xs-1 colmaker stripeUP whitetext">BYE</div>
+            <div class="col-xs-1 stripeBOT stripeUP colmaker nobr whitetext">LB2</div>
+            <div id="MAIN" class="col-xs-1 stripeBOT stripeDOWN stripeUP colmaker nobr">MAINCOL</div>
+            <div class="col-xs-1 stripeBOT stripeDOWN colmaker nobr whitetext">WB8</div>
+            <div class="col-xs-1 colmaker"></div>
+            <div class="col-xs-1 colmaker stripeDOWN whitetext">BYE</div>
+            <div class="col-xs-1 colmaker"></div>
+            <div class="col-xs-1 colmaker"></div>
+        </div>
+        <!-- 16 -->
+        <div class="row">
+            <div class="col-xs-1 colmaker"></div>
+            <div class="col-xs-1 colmaker"></div>
+            <div class="col-xs-1 colmaker"></div>
+            <div class="col-xs-1 stripeBOT stripeUP colmaker nobr whitetext">LB2</div>
+            <div class="col-xs-1 colmaker"><b>A</b></div>
+            <div id="MAIN" class="col-xs-1 stripeBOT stripeDOWN stripeUP colmaker nobr">MAINCOL</div>
+            <div class="col-xs-1 colmaker"></div>
+            <div class="col-xs-1 colmaker"></div>
+            <div class="col-xs-1 stripeBOT stripeDOWN colmaker nobr whitetext">SF4</div>
+            <div class="col-xs-1 colmaker"></div>
+            <div class="col-xs-1 colmaker"></div>
+        </div>
+         <!-- 17 -->
+        <div class="row">
+            <div class="col-xs-1 colmaker"></div>
+            <div class="col-xs-1 colmaker"></div>
+            <div class="col-xs-1 colmaker"></div>
+            <div class="col-xs-1 colmaker"></div>
+            <div class="col-xs-1 colmaker"></div>
+            <div class="col-xs-1 colmaker"></div>
+            <div class="col-xs-1 colmaker"></div>
+            <div class="col-xs-1 colmaker"></div>
+            <div class="col-xs-1 colmaker fromdown">-2</div>
+            <div class="col-xs-1 colmaker"></div>
+            <div class="col-xs-1 colmaker"></div>
+        </div>
+        
+        
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Kevin Kattai, Valga Piljardiklubi, 2015</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

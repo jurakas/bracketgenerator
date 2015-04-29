@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="auto-generator for tournament brackets">
+    <meta name="author" content="Kevin Kattai">
+
+    <title>Bracket Generator</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/small-business.css" rel="stylesheet">
+    
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">
+                    <img src="./images/LOGO.png" width="80px" height="60px" alt="">
+                </a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#">About</a>
+                    </li>
+                    <li>
+                        <a href="genmain.html">Generator</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+        <div>
+            Kevini tournament-generator. Hetkel beetafaasis täiesti, loodetavasti varsti töötab ka suuremate tabelitega.
+        </div>
+        <br>
+        <div>
+            Versioon 1.1.0<br>
+            <ul>
+                <li>Saab sisestada dünaamiliselt andmeid (st kasutaja saab valida mitu välja ta tahab)</li>
+                <li>Andmed kuvatakse tabelis (16ne tabel, 32 tabel grupid)</li>
+                <li>Kasutajale teatatakse kui ta on liiga palju välju pannud tabeli jaoks, edasi ei liiguta (16 tabel,32 tabel)<br>
+                    Teiste tabelite puhul (grupid) on eeldus, et kasutaja valib tabelid täpselt.</li>
+                <li>Tabelid on tehtud printimisformaati</li>
+                <li>Autoforward põhitabelitel</li>
+            </ul>
+            Vaja teha: <br>
+            <ul>
+                <li>PHP puhul n.ö 'authenticator', mis võimaldaks tabeli autentsust kontrolldia</li>
+                <li>PHP puhul n.ö 'userlist', mis võimaldaks vaadata varem tehtud tabeleid, sisestada tulemusi, jne.</li>
+                <li>Improved Group Tables</li>
+                <li>Settings MODAL!</li>
+                <li>16, kust üks välja</li>
+                <li>GITHUB</li>
+                <li>Updated: 29.04</li>
+            </ul>
+        </div>
+        
+        
+        
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Kevin Kattai, Valga Piljardiklubi, 2015</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="auto-generator for tournament brackets">
+    <meta name="author" content="Kevin Kattai">
+
+    <title>How does it work?</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/small-business.css" rel="stylesheet">
+    
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">
+                    <img src="LOGO.png" width="80px" height="60px" alt="">
+                </a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="index.html">About</a>
+                    </li>
+                    <li>
+                        <a href="genmain.html">Generator</a>
+                    </li>
+                    <li>
+                        <a href="how.html">HOW?</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+        <div>
+            Kuidas see rakendus siis töötab?
+        </div>
+        <br>
+        <div>
+            Rakenduse põhiosa info on siin: <br>
+            <ul>
+                <li>Rakenduse info kogutakse lehel 'Generator', kus kasutaja saab sisestada nimesid ning valida tabeli</li>
+                <li>Nimede lisamine toimub javascriptiga, iga nimi salvestatakse localStoragesse, järjendisse.<br>
+                    See järjend (list teisisõnu) antakse edasi tabelilehele.</li>
+                <li>Tabelileht kuvatakse sõltuvalt raadionupu valikust - kas 16,32 või üks gruppidest</li>
+                <li>Tabelileht on tehtud HTML-is tabelitena, kuskil 300 rida koodi</li>
+            </ul>
+            <br>
+            Algoritmi info: <br>
+            <ul>
+                <li>Kujutame ette, et meil on list nimedega: Tiit, Teet, Mauri. Lehel on funktsioon, mis korrutab listi pikkust <br>
+                    suvalise täisarvuga, mille arvuti genereerib. Genereeritud arv on vahemikus 0-1 ning sisaldab ligi kümmet komakohta.<br>
+                    Selline arvutus tagab selle, et tulemus on listi piirides ning tagab parima suvalise tulemuse.</li>
+                <li>Nüüd kui meil on elemendid suvaliselt järjestatud tuleks kontrollida, kas tabelisse ka tühje kohti jääb. <br>
+                Igal tabelil on vastav arv mängijad, näiteks 16sel peab olema 16, kui on vähem, siis tühjad kohad tulevad tehtest: <br>
+                16-mängijate_arv = tühjad_kohad. Tühjad kohad paigutatakse täpselt õigele positsioonile nii palju kui vaja on.</li>
+            </ul>
+        </div>
+        
+        
+        
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Kevin Kattai, Valga Piljardiklubi, 2015</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
