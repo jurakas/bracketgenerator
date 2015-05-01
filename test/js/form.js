@@ -16,7 +16,44 @@ $(document).ready(function(){
        if($(this).attr('id') == 'radiobutton' && $(this).attr('value') == './tables/4group.html') {
            disableRB();
            $(this).prop("checked",true);
-            $('#showtest').show();           
+            $('#showtest').show();   
+           var g1 = document.querySelector("#gcount1");
+           var g2 = document.querySelector("#gcount2");
+           var g3 = document.querySelector("#gcount3");
+           var g4 = document.querySelector("#gcount4");
+           var g5 = document.querySelector("#gcount5");
+           
+           var c = document.getElementById("gamecount");
+           var val1 = 0;
+           var val2 = 0;
+           var val3 = 0;
+           var val4 = 0;
+           var val5 = 0;
+           g1.addEventListener('input', function()
+            {
+               val1 = 6 * g1.value;
+                c.textContent = val1 + val2 + val3 + val4 + val5;
+            });
+           g2.addEventListener('input', function()
+            {
+               val2 = 10 * g2.value;
+                c.textContent = val1 + val2 + val3 + val4 + val5;
+            });
+           g3.addEventListener('input', function()
+            {
+               val3 = 15 * g3.value;
+                c.textContent = val1 + val2 + val3 + val4 + val5;
+            });
+           g4.addEventListener('input', function()
+            {
+               val4 = 21 * g4.value;
+                c.textContent = val1 + val2 + val3 + val4 + val5;
+            });
+           g5.addEventListener('input', function()
+            {  
+               val5 = 28 * g5.value;
+                c.textContent = val1 + val2 + val3 + val4 + val5;
+            });
        }
 
        else {
@@ -30,6 +67,11 @@ $(document).ready(function(){
     });
 });
 
+$(document).ready(function(){
+    $('[data-toggle="popover"]').popover();   
+});
+
+//$('#popoverOption').popover({ trigger: "hover" });
 
 
 
@@ -116,11 +158,19 @@ function getElementArray(divName){
 function saveCheckBoxValues(){
     autoForwardValue = document.getElementById("autoforwardOFF");
     runasTestValue = document.getElementById("runasTEST");
+    emptyTABLEValue = (document.getElementById("emptyTABLE")).checked;
+    addName = (document.getElementById("addNameToTable")).value;
+    var nameValue = "";
+    if (addName.length > 0){
+        nameValue = addName;
+    }
     AFvalue = autoForwardValue.checked;
     RATvalue = runasTestValue.checked; 
     var checkboxes = [];
     checkboxes.push(AFvalue);
     checkboxes.push(RATvalue);
+    checkboxes.push(emptyTABLEValue);
+    checkboxes.push(nameValue);
     localStorage.checkboxes = JSON.stringify(checkboxes);
 }
 
@@ -133,9 +183,11 @@ function submitForm(divName){
          if(inputs[i].getAttribute('name').localeCompare("choosetable") == 0 && inputs[i].checked){
              href = inputs[i].getAttribute("value");
              if (href.localeCompare("./tables/16table.html") == 0 && pikkus <= 16){
+                 saveCheckBoxValues();
                  window.location = href;
              }
              else if (href.localeCompare("./tables/4group.html") == 0){
+                 saveCheckBoxValues();
                  window.location = href;
              }
              else if (href.localeCompare("./tables/32table.html") == 0 && pikkus <= 32 && pikkus >= 17){
@@ -143,7 +195,7 @@ function submitForm(divName){
                  window.location = href;
              }
              else{
-                 if (document.getElementById("runasTEST").checked == true){
+                 if (document.getElementById("runasTEST").checked == true || document.getElementById("emptyTABLE").checked == true){
                      saveCheckBoxValues();
                      window.location = href;
                  }

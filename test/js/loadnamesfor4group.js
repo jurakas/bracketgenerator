@@ -96,12 +96,30 @@ function getInside(howmany, tableid){
 window.onload = function() {
        var myValues = localStorage.getItem("myValues") ? JSON.parse(localStorage.getItem("myValues")) : [];
        var myTables = localStorage.getItem("tableValues") ? JSON.parse(localStorage.getItem("tableValues")) : [];
+    var checkBoxes = localStorage.getItem("checkboxes") ? JSON.parse(localStorage.getItem("checkboxes")) : [];
        var divElements = makeDuplicates(myTables);
        var names = getElements(myTables);
+       //create empty table
+       if (checkBoxes[2] == true){
+           var emptyA = []
+           for (var i = 0; i<100;i++){
+               emptyA.push("");
+           }
+           myValues = emptyA;
+       }
        for(var i = 0; i < myValues.length; i++) {
            var sone = myValues[i];
-           var suurelt = sone[0].toUpperCase() + sone.substr(1);
+           if (checkBoxes[2] != true){
+               var suurelt = sone[0].toUpperCase() + sone.substr(1);
+           }
            names[i].textContent = suurelt;
+       }
+       if (checkBoxes[3].length > 0){
+           nameTAG = document.getElementsByClassName("nameTAG");
+           for (var i = 0; i<nameTAG.length;i++){
+               nameTAG[i].textContent = checkBoxes[3];
+           }
+           
        }
    }
 /*

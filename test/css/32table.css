@@ -40,3 +40,12 @@
     text-align: left;
     padding-left: 10px;
 }
+
+.headtext{
+    font-weight: bold;
+    text-align: center;
+    font-size: 25px;
+    font-family: "Verdana";
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

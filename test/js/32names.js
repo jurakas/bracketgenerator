@@ -170,10 +170,24 @@ window.onload = function() {
        var myValues = localStorage.getItem("myValues") ? JSON.parse(localStorage.getItem("myValues")) : [],
        divElements = document.getElementsByClassName("namefield");
        var checkBoxes = localStorage.getItem("checkboxes") ? JSON.parse(localStorage.getItem("checkboxes")) : [];
+       // test values
        if (checkBoxes[1] == true){
            myValues = ["Tiit", "Kevin", "Andres", "Sören", "Banaan", "Sairos", "Lembit", "Taavi", "Ants", "Nimi", "Üksteist", "Siku", "Rene", "Testplayer", "VeryPlayer", "Manyplayer", "Superplayer", "Nimedotsas", "Puhasjama", "Appiii", "Võikslõppeda", "Kakskendkaks"];
        }
        myValues = orderMaker(myValues);
+       //create empty table
+       if (checkBoxes[2] == true){
+           var emptyA = []
+           for (var i = 0; i<32;i++){
+               emptyA.push("");
+           }
+           myValues = emptyA;
+       }
+       //add table name
+       if (checkBoxes[3].length > 0){
+           nameTAG = document.getElementById("nameTAG");
+           nameTAG.textContent = checkBoxes[3];
+       }
        for(var i =0; i < myValues.length; i++) {
            divElements[i].textContent = myValues[i];
        }
@@ -182,6 +196,13 @@ window.onload = function() {
            autoForward(myValues);
        }
    }
+
+//back forward
+/*window.onpopstate = function() {
+    if (!window.history.ready) return;
+	loadContent(window.location."genmain.html");
+};*/
+
 /*
 function PrintElem(elem)
     {

@@ -58,6 +58,9 @@
                     <li>
                         <a href="#">Generator</a>
                     </li>
+                    <li>
+                        <a href="https://github.com/jurakas/bracketgenerator">GITHUB</a>
+                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -68,8 +71,9 @@
     <!-- Page Content -->
     <div class="container">
         <!-- 1 -->
+        <div class="col-xs-5 bigBORDER">
         <form method="POST" >
-            <div>Kui vajutad 'F2'-te, siis tekib väli automaatselt, ilma nupule vajutamiseta</div><br>
+            <h4 style="font-family: Verdana; margin-bottom: 20px">Tabeligeneraator</h4>
             <table id="dynamicInput" class="tableStyle" style="display: inline-block">
                 <tr class="spaceUnder">
                     <td><p class="nametext" style="font-size:20px">#1 <i class="fa fa-user" style="font-size:20px"></i></p></td>
@@ -83,35 +87,97 @@
             <input type="radio" id="radiobutton" name="choosetable" value="./tables/4group.html"> Grupid<br>       
             <div id="showtest" style="display:none">
                 <form>
-                    4-seid tabeleid: <input type="number" name="gtable" min="0" max="7" value=0><br>
-                    5-seid tabeleid: <input type="number" name="gtable" min="0" max="7" value=0><br>
-                    6-seid tabeleid: <input type="number" name="gtable" min="0" max="7" value=0><br>
-                    7-seid tabeleid: <input type="number" name="gtable" min="0" max="7" value=0><br>
-                    8-seid tabeleid: <input type="number" name="gtable" min="0" max="7" value=0><br>
+                    4-seid tabeleid: <input type="number" id="gcount1" name="gtable" min="0" max="7" value=0><br>
+                    5-seid tabeleid: <input type="number" id="gcount2" name="gtable" min="0" max="7" value=0><br>
+                    6-seid tabeleid: <input type="number" id="gcount3" name="gtable" min="0" max="7" value=0><br>
+                    7-seid tabeleid: <input type="number" id="gcount4" name="gtable" min="0" max="7" value=0><br>
+                    8-seid tabeleid: <input type="number" id="gcount5" name="gtable" min="0" max="7" value=0><br>
+                    <b>Mängude arv:</b> <div id="gamecount" style="display: inline">&nbsp</div>
                 </form>
             </div>
             <input type="radio" id="radiobutton" name="choosetable" value="./tables/16table.html"> 16-ne kust kaks saab välja<br>
             <input type="radio" id="radiobutton" name="choosetable" value="./tables/32table.html"> 32-ne kust neli saab välja<br><br>
             <button type="submit" id="btnFormSubmit" onClick="getElementArray('dynamicInput');return submitForm('radiobutton')"><i class="fa fa-check" style="font-size:25px"></i></button>
             <button type="button" id='settingsButton' data-toggle="modal" data-target="#settingsModal"><i class="fa fa-cog" style="font-size:25px"></i></button>
-            <div style="font-weight: bold"><br>IE on sitt browser, kasuta mõnda muud ja töötab ilusti :)</div><br>
-            
+       
+        </div> 
+        <div class="col-xs-7">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Info</h3>
+                    <span class="pull-right">
+                        <ul class="nav panel-tabs">
+                            <li class="active"><a href="#tab1" data-toggle="tab">Abi</a></li>
+                            <li class="inactive"><a href="#tab2" data-toggle="tab">Changelog</a></li>
+                        </ul>
+                    </span>
+                </div>            
+                <div class="panel-body">
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="tab1">
+                            Mõned näpunäited rakenduse kasutamiseks:
+                                <ol>
+                                    <li>Sisesta tabelisse nimi</li>
+                                    <li>Vajuta nupule <button type="button" id='addButton' onClick="addInput('dynamicInput');"><i class="fa fa-user-plus" style="font-size:18px"></i></button> või vajuta <b>F2-hte, et lisada uus tekstiväli</b> uue nime jaoks. Pea meeles, midagi tuleb kasti sisestada ka selleks, et uut kasti teha. Eelmise kasti eemaldamiseks vajuta nupule <button type="button" onClick="removeInput('dynamicInput');"><i class="fa fa-minus-circle" style="font-size:18px"></i></button>.</li>
+                                    <li>Kui arvad, et oled sisestanud nimesid juba piisavalt võid suunduda edasi ja valida endale sobiva tabeli.</li>
+                                    <li><b>Gruppide puhul on eeldus, et kasutaja sisestab õige arvu gruppe.</b> Näiteks 13 mängija puhul valib kasutaja ühe kuuese ja ühe seitsmese grupi jne. 32 ja 16 tabelite puhul muid piiranguid ei ole, peale selle, et 16-ne ei tohi olla üle 16 nime pikk ning 32ne ei tohi olla alla 16ne pikk ning üle 32.</li>
+                                    <li>Enne edasi suundumist võid üle vaadata ka seaded, nupust: <button type="button" id='settingsButton' data-toggle="modal" data-target="#settingsModal"><i class="fa fa-cog" style="font-size:18px"></i></button>, kust on võimalik: 
+                                        <ul>
+                                            <li>Lisada tabelile nime</li>
+                                            <li>Teha tühja tabelit (printimiseks näiteks)</li>
+                                            <li>Eemaldada automaatselt edasisuunamist (kui mängija jääb esimeses voorus vabaks, siis lükatakse ta edasi järgmisesse ringi)</li>
+                                            <li>Jooksutada testina</li>
+                                            <li>Lisaleht, kus peal on voorud, et kes kellega mängima peab</li>
+                                            <li>Eemaldada back nupuga salvestatav nimecache (paljude tabelite loomise korral)</li>
+                                        </ul></li>
+                                    <li>Kui valmis, siis vajuta nupule <button type="submit" id="btnFormSubmit" onClick="getElementArray('dynamicInput');return submitForm('radiobutton')"><i class="fa fa-check" style="font-size:18px"></i></button> ning sind suunatakse edasi juba sulle genereeritud tabelisse.</li>
+                                
+                                </ol>
+                        </div>
+                        <div class="tab-pane" id="tab2">
+                            Versioonide muudatuste ajalugu. Varasemaid versioone on võimalik saada GITHUBist ning kasutada enda leheküljel.
+                            <ul>
+                                <br>
+                                <li><b>Version 1.1.1; 01. Mai 2015</b>
+                                    <ul>
+                                        <li>Lisasin akna generaatori lehelküljele, kust näeb nüüd abi ning ka versiooniga tulenevaid muudatusi. Lisaks näeb viimati tehtud uuendust. Seoses sellega eemaldasin esimeselt leheküljelt infot.</li>
+                                        <li>Automaatne edasisuunamine - kui mängija jääb esimeses voorus vabaks, siis suunatakse ta automaatselt edasi järgmisesse ringi (loomulikult miinustabelitel, mitte grupitabelitel)</li>
+                                        <li>Seaded nupp ning seoses sellega tehtud muudatused, nagu näiteks automaatse edasisuunamise eemaldamine, tühjade tabelite (print version) tegemine, testimisvõimalus jpm. Lisaks proovisin seadete puhul Bootstrapi popover funktsiooni, kui osadele tekstidele peale liigutada, siis avaneb veel lisaaken, mis kuvab kasutajale mõningat infot mida abis ma ei käsitle põhjalikult.</li>
+                                        <li>Tegin lõpuks failid korda - organiseerisin kaustades korralikult ära, iga asi läks oma kausta</li>
+                                        <li>Tegin ka GITHUB-i, kuhu pääseb ülevalt lingilt.</li>
+                                        <li>Gruppides on nüüd kalkulaator, mis kalkuleerib gruppides tehtavat mängude arvu!</li>
+                                    </ul>
+                                </li>
+                                <br>
+                                <li> <i>Hetkel teada olevad vead:</i>
+                                <ul>
+                                    <li>Grupileheküljel tuleb ette täiesti tühi lehekülg, kui printida</li>
+                                </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
             
         </form>
+        
+
 
         <div class="modal fade" id="settingsModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Seaded</h4>
+                        <h4 class="modal-title" id="myModalLabel"><i class="fa fa-cog" style="font-size:20px"></i> Seaded</h4>
                     </div>
                     <div class="modal-body">
-                        <input type="checkbox" id="namecacheOFF" value""> Ära salvesta nimesid#TODO<br>
-                        <input type="checkbox" id="addTable" value""> Lisa voorutabel #TODO<br>
+                        <div data-toggle="popover" data-trigger="hover" title="Info" data-content="See valik töötab vaid grupitabelite puhul ehk milline oleks optimaalne mängude järjekord, et tabel kokku ei jookseks!"><input type="checkbox" id="addTable" value""> Lisa voorutabel #TODO<br></div>
                         <input type="checkbox" id="autoforwardOFF" value""> Lülita automaatne edasilükkamine välja<br>
-                        <input type="checkbox" id="runasTEST" value""> Jooksuta testina <br>
-                        Pane tabelile nimi: <input type="textfield" id="addNameToTable" value""> #TODO <br>
+                        <div data-toggle="popover" data-trigger="hover" title="Info" data-content="Selle valiku tegemisel ei arvestata Sinu sisestatud nimesid, tegemist on testimisvalikuga, peamiselt suurte tabelite jaoks (grupitabelitel ei tööta)"><input type="checkbox" id="runasTEST" value""> Jooksuta testina <br></div>
+                        <input type="checkbox" id="emptyTABLE" value""> Tühjad tabelid <br>
+                        Pane tabelile nimi: <input type="textfield" id="addNameToTable" name="addName" value""> <br>
                         
                     </div>
                     <div class="modal-footer">

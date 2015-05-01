@@ -1,8 +1,11 @@
 @media print {
-    @page {size: landscape}
+    @page {size: landscape;
+         margin: 0mm;
+    
+    }
     .myDivToPrint {
        /* background-color: white;*/
-        height: 1000px;
+        height: 99%;
         width: 100%;
         top: 0;
         left: 0;
