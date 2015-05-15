@@ -12,13 +12,13 @@
     <title>Bracket Generator</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="css/small-business.css" rel="stylesheet">
+    <link href="../css/swisspaaris.css" rel="stylesheet">
     
-    <!-- FONT AWESOME -->
-    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <!-- PRINT-->
+    <link rel="stylesheet" type="text/css" href="../css/print.css" media="print">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -26,7 +26,8 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/swisspaaritu.js"></script>
 </head>
 
 <body>
@@ -43,17 +44,17 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="#">
-                    <img src="./images/LOGO.png" width="80px" height="60px" alt="">
+                    <img src="../images/LOGO.png" width="80px" height="60px" alt="">
                 </a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li>
-                        <a href="#">About</a>
+                    <li> 
+                        <a href="../index.html">About</a>
                     </li>
                     <li>
-                        <a href="genmain.html">Generator</a>
+                        <a href="../genmain.html">Generator</a>
                     </li>
                     <li>
                         <a href="https://github.com/jurakas/bracketgenerator">GITHUB</a>
@@ -66,36 +67,54 @@
     </nav>
 
     <!-- Page Content -->
-    <div class="container">
-        <h3>Tere tulemast, see on Kevini tabeligeneraator!</h3>
-        <br>
-        <div>
-            Kuhu sa nüüd täpselt jõudnud oled.. Nimelt oli mul üks hetk igav ning otsustasin, et peaks midagi praktilist tegema ning siis otsustasin, et sellise asja luua. Paraku nagu selliste asjadega on (veebiarenduse, programmeerimise vms asjaga), siis see kulmineerub nii, et see muutub tohutult sõltuvust tekitavaks ning nii ma olen seda lehekülge üha edasi arendanud. Täpsemalt generaatorist leiad sa generaatori lehekülje alt.<br>
-            <br>
-            Kuna Internet Explorer on üks kole browser ja ei taha olla Minu sõber, siis ei ole ta ka mu lehekülje sõber. Seega kui kasutad veebilehitsejat Internet Explorer, siis võib JavaScripti töös olla vigu ning lehekülg ei pruugi korrektselt laadida. Soovitan kasutada kas Chromet, Operat või Firefoxi.<br>
-            <br>
-            
-            Lehekülg on ehitatud HTML, CSS ja JavaScript baasile. Välistest teekidest kasutan Bootstrapi, Font-Awesomet ning jQueryt lisaks. Disainile veel suurt rõhku ei ole pööranud, peamiselt olen tegelenud loogikaosaga ning sellega, et lehekülg ikkagi töötaks. Hetkel jooksutan mingit suvalist bootstrapi templatet, mida olen pisut ise modifitseerinud.
+    <div class="container myDivToPrint">
+        <div class="sisaldaja">
+            <div class="row">
+                <div id="tabelid">
+                <div id="tabel" class="peaTABEL"></div>
+                <br>
+                <div id="voorutabel" class="korvalTABEL"></div>
+                <br>
+                <button id="edasi" class="btn btn-primary" onClick="calculatePoints()">Järjesta!</button> <button class="btn btn-danger" data-toggle="modal" data-target="#historyModal">Näita ajalugu!</button>
+                <br>
+                </div>
+            </div>
         </div>
-        
-        
         <!-- Footer -->
         <footer>
             <div class="row">
                 <div class="col-lg-12">
-                    <p>Copyright &copy; Kevin Kattai, Valga Piljardiklubi, 2015</p>
+                    <p>Copyright &copy; Kevin Kattai, Valga Piljardiklubi & Valga Petanque klubi, 2015</p>
                 </div>
             </div>
         </footer>
 
     </div>
     <!-- /.container -->
+    
+     <div class="modal fade" id="historyModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel"><i class="fa fa-cog" style="font-size:20px"></i> Mängude ajalugu.</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div id="historyDisp">Esmalt võiksid mõned voorud läbi mängida, et siin midagi näha oleks..</div>
+                        <div id="historyTable"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     <!-- jQuery -->
-    <script src="js/jquery.js"></script>
+    <script src="../js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
 
 </body>
 

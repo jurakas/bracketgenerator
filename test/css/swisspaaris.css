@@ -1,0 +1,80 @@
+table {
+ border: 2px solid black;   
+}
+
+td {
+ width: 45px;
+ border: 1px solid grey; 
+ padding: 5px;
+}
+
+tr{
+    height: 30px;
+}
+
+.rida_0{
+    height: 15px;
+    border-bottom: 2px solid black;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.elem_0{
+    width: 100px;
+    border-right: 2px solid black;
+    padding: 5px;
+}
+
+.elem_8{
+    border-left: 2px solid black;
+}
+
+.elem_9{
+    border-left: 2px solid black;
+}
+
+.elem_10{
+    border-left: 2px solid black;
+}
+
+.elem_11{
+    border-left: 2px solid black;
+}
+
+.sisaldaja{
+    margin: 100px;
+}
+
+.boxboy_0{
+    width: 200px;
+}
+
+.tableSTIIL{
+    margin-right: 25px;
+}
+
+.historyClass{
+    margin-bottom: 25px;
+}
+
+.setDisplay{
+    display: none;
+}
+
+.down{
+    border-bottom: 1px solid #000;
+    width: 70px;
+}
+
+.up{
+    border-top: 1px solid #000;
+    width: 70px;
+}
+
+.left {
+    border-left: 1px solid #000;
+}
+
+.right{
+    border-right: 1px solid #000;
+}

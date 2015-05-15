@@ -73,8 +73,6 @@ $(document).ready(function(){
 
 //$('#popoverOption').popover({ trigger: "hover" });
 
-
-
 var counter = 1;
     var limit = 65;
     var divcounter = 1;
@@ -150,7 +148,9 @@ function getElementArray(divName){
     for (var i = 0; i<gtable.length;i++){
         tableValues.push(parseInt(gtable[i].value));
     }
-    myValues = shuffle(myValues);
+    if (document.getElementById("shuffleOFF").checked != true){
+        myValues = shuffle(myValues);
+    }
     localStorage.myValues = JSON.stringify(myValues);
     localStorage.tableValues = JSON.stringify(tableValues);
 }
@@ -194,6 +194,15 @@ function submitForm(divName){
                  saveCheckBoxValues();
                  window.location = href;
              }
+             else if (href.localeCompare("./tables/swisspaaris.html") == 0){
+                 saveCheckBoxValues();
+                 if (names.length % 2 == 0){
+                    window.location = href;
+                 }
+                 else{
+                    window.location = "./tables/swisspaaritu.html";
+                 }
+             }
              else{
                  if (document.getElementById("runasTEST").checked == true || document.getElementById("emptyTABLE").checked == true){
                      saveCheckBoxValues();
@@ -208,7 +217,5 @@ function submitForm(divName){
     }
     return false;
 }
-
-
 
     

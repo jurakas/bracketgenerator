@@ -26,7 +26,7 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="./js/jquery.min.js"></script>
     
     <script src=./js/form.js></script>
 
@@ -96,7 +96,8 @@
                 </form>
             </div>
             <input type="radio" id="radiobutton" name="choosetable" value="./tables/16table.html"> 16-ne kust kaks saab välja<br>
-            <input type="radio" id="radiobutton" name="choosetable" value="./tables/32table.html"> 32-ne kust neli saab välja<br><br>
+            <input type="radio" id="radiobutton" name="choosetable" value="./tables/32table.html"> 32-ne kust neli saab välja<br>
+            <input type="radio" id="radiobutton" name="choosetable" value="./tables/swisspaaris.html"> Swiss System<br><br>
             <button type="submit" id="btnFormSubmit" onClick="getElementArray('dynamicInput');return submitForm('radiobutton')"><i class="fa fa-check" style="font-size:25px"></i></button>
             <button type="button" id='settingsButton' data-toggle="modal" data-target="#settingsModal"><i class="fa fa-cog" style="font-size:25px"></i></button>
        
@@ -109,6 +110,7 @@
                         <ul class="nav panel-tabs">
                             <li class="active"><a href="#tab1" data-toggle="tab">Abi</a></li>
                             <li class="inactive"><a href="#tab2" data-toggle="tab">Changelog</a></li>
+                            <li class="inactive"><a href="#tab3" data-toggle="tab">Tricks</a></li>
                         </ul>
                     </span>
                 </div>            
@@ -120,7 +122,17 @@
                                     <li>Sisesta tabelisse nimi</li>
                                     <li>Vajuta nupule <button type="button" id='addButton' onClick="addInput('dynamicInput');"><i class="fa fa-user-plus" style="font-size:18px"></i></button> või vajuta <b>F2-hte, et lisada uus tekstiväli</b> uue nime jaoks. Pea meeles, midagi tuleb kasti sisestada ka selleks, et uut kasti teha. Eelmise kasti eemaldamiseks vajuta nupule <button type="button" onClick="removeInput('dynamicInput');"><i class="fa fa-minus-circle" style="font-size:18px"></i></button>.</li>
                                     <li>Kui arvad, et oled sisestanud nimesid juba piisavalt võid suunduda edasi ja valida endale sobiva tabeli.</li>
-                                    <li><b>Gruppide puhul on eeldus, et kasutaja sisestab õige arvu gruppe.</b> Näiteks 13 mängija puhul valib kasutaja ühe kuuese ja ühe seitsmese grupi jne. 32 ja 16 tabelite puhul muid piiranguid ei ole, peale selle, et 16-ne ei tohi olla üle 16 nime pikk ning 32ne ei tohi olla alla 16ne pikk ning üle 32.</li>
+                                    <li><b>Gruppide puhul on eeldus, et kasutaja sisestab õige arvu gruppe.</b> Näiteks 13 mängija puhul valib kasutaja ühe kuuese ja ühe seitsmese grupi jne. 32 ja 16 tabelite puhul muid piiranguid ei ole, peale selle, et 16-ne ei tohi olla üle 16 nime pikk ning 32ne ei tohi olla alla 16ne pikk ning üle 32.
+                                        <ul>
+                                            <li><b>Sveitsi süsteemi kasutamine:</b></li>
+                                            <li>Seadete alt on võimalik nimede juhujärjestust eemaldada, kui kasutaja tahab, et nimed oleksid tema järgi sisestatud.</li>
+                                            <li>Sveitsi süsteemi tabelis sisesta alumisse tabelisse mängu tulemus kujul "number:number" näiteks, 5:0 või 13:2 jne. Pea meeles: kui mängivad Tiit vs Kevin, siis kujul 13:0 märkimisel on Tiit võitnud Kevinit 13:0</li>
+                                            <li>Vajuta järjesta, kui oled sisestanud kõik nimed</li>
+                                            <li>Kuvatakse järgmine voor!</li>
+                                            <li>Veateade <i>Valitud mängud ei pruugi olla enam parimas järjekorras</i> tähendab seda, et mängude leidmisel tekkis probleem ning mänge hakati otsima mitte ülevalt alla, vaid alt ülesse.</li>
+                                        </ul>
+                                    
+                                    </li>
                                     <li>Enne edasi suundumist võid üle vaadata ka seaded, nupust: <button type="button" id='settingsButton' data-toggle="modal" data-target="#settingsModal"><i class="fa fa-cog" style="font-size:18px"></i></button>, kust on võimalik: 
                                         <ul>
                                             <li>Lisada tabelile nime</li>
@@ -138,6 +150,33 @@
                             Versioonide muudatuste ajalugu. Varasemaid versioone on võimalik saada GITHUBist ning kasutada enda leheküljel.
                             <ul>
                                 <br>
+                                <li><b>Version 2.0.0; 15. Mai 2015</b>
+                                    <ul>
+                                        <li>Lisatud Sveitsi süsteem</li>
+                                        <li>Muutsin pisut help-i ning lisasin uue tab-i "Tricks"</li>
+                                        <li>Kasutaja saab nüüd enda sisestatud nimesid ka mitte-juhujärjestada</li>
+                                        <br>
+                                        <li><b>Sveitsi süsteemist:</b>
+                                            <ul>
+                                                <li>Eraldi tabelid selle jaoks, et kas mängijaid on paaris või paaritu arv. Kasutaja peab vaid sisestama vaid nimede arvu, rakendus ise valib, millist kasutada.</li>
+                                                <li>Kasutaja sisestab skoori, näiteks 1:0, paigutatakse tabelisse, arvutatakse järgmine mäng, kuvatakse kasutajale.</li>
+                                                <li>Kui kasutaja navigeerib ära sveitsi süsteemi lehelt, siis küsitakse temalt, kas ta ikka kindalsti tahab ära navigeerida, sest andmed kaovad ära.</li>
+                                            </ul>
+                                        
+                                        </li>
+                                        <br>
+                                        <li>Tulekul uuendused:
+                                            <ul>
+                                                <li>Regex check - ehk kasutaja ei saa sisestada valet sisendit sveitsi süsteemis</li>
+                                                <li>Edasi playoffi - 8 paremat lähevad edasi playoffi sveitsi süsteemist</li>
+                                                <li>LocalStorage salvestus - kui kasutaja lehe sulgeb, siis ei kao andmed ära.</li>
+                                                <li>Sveitsi süsteemi print korda</li>
+                                                <li>Straight to PDF sveitsi süsteemist</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <br>
                                 <li><b>Version 1.1.1; 01. Mai 2015</b>
                                     <ul>
                                         <li>Lisasin akna generaatori lehelküljele, kust näeb nüüd abi ning ka versiooniga tulenevaid muudatusi. Lisaks näeb viimati tehtud uuendust. Seoses sellega eemaldasin esimeselt leheküljelt infot.</li>
@@ -154,6 +193,17 @@
                                     <li>Grupileheküljel tuleb ette täiesti tühi lehekülg, kui printida</li>
                                 </ul>
                                 </li>
+                            </ul>
+                        </div>
+                        <div class="tab-pane" id="tab3">
+                            Mõned trikid mida on hea meeles pidada rakenduse kasutamisel.
+                            
+                            <ul>
+                                <br>
+                                <li>Nimede sisestamisel kasuta F2-hte, et lisada uut tekstivälja. Kasutades nii TAB nuppu kui F2-hte pole hiirt vajagi</li>
+                                <li>Kui sulgesid kogemata tabeli ning oled hädas, siis tabel koos nimedega peaks sinu browseris säilima seni, kuni teed uue tabeli. Avades lingi kaudu, saad koheselt tagasi enda tabeli juurde. Tabelite juurde pääsemiseks soovitan kasutada <a href="http://kevin.planet.ee/tables/" target="_blank">seda lehekülge</a>. Siiski, pea meeles - Sveitsi süsteemi tabeli puhul tab-i sulgedes või eemale navigeerides kaob kogu sisestatud info tabelist ning säilivad vaid nimed.</li>
+                                <li>Veebileht ei ole serveripõhine ehk seda saab kasutada ka ilma interneti ühendust omamata. Selleks liigu minu GITHUB-i lehele, kust saad endale viimase töötava versiooni sellest rakendusest.</li>
+                                
                             </ul>
                         </div>
                     </div>
@@ -175,6 +225,8 @@
                     <div class="modal-body">
                         <div data-toggle="popover" data-trigger="hover" title="Info" data-content="See valik töötab vaid grupitabelite puhul ehk milline oleks optimaalne mängude järjekord, et tabel kokku ei jookseks!"><input type="checkbox" id="addTable" value""> Lisa voorutabel #TODO<br></div>
                         <input type="checkbox" id="autoforwardOFF" value""> Lülita automaatne edasilükkamine välja<br>
+                        <input type="checkbox" id="brokenOFF" value""> Lülita veateadete kuvamine välja #TODO<br>
+                        <input type="checkbox" id="shuffleOFF" value""> Lülita nimede juhujärjestus välja<br>
                         <div data-toggle="popover" data-trigger="hover" title="Info" data-content="Selle valiku tegemisel ei arvestata Sinu sisestatud nimesid, tegemist on testimisvalikuga, peamiselt suurte tabelite jaoks (grupitabelitel ei tööta)"><input type="checkbox" id="runasTEST" value""> Jooksuta testina <br></div>
                         <input type="checkbox" id="emptyTABLE" value""> Tühjad tabelid <br>
                         Pane tabelile nimi: <input type="textfield" id="addNameToTable" name="addName" value""> <br>
@@ -191,7 +243,7 @@
         <footer>
             <div class="row">
                 <div class="col-lg-12">
-                    <p>Copyright &copy; Kevin Kattai, Valga Piljardiklubi, 2015</p>
+                    <p>Copyright &copy; Kevin Kattai, Valga Piljardiklubi & Valga Petanque klubi, 2015</p>
                 </div>
             </div>
         </footer>
