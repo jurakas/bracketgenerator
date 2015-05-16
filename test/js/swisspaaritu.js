@@ -7,6 +7,7 @@ var tableCount = 3;
 var viimaneEl = "";
 var inThisFunc = 1;
 var olnudVabad = [];
+var fromLast = false;
 
 function continueCheck(){
     var checkbox = document.getElementById("turnoffalgorithm");
@@ -228,8 +229,20 @@ window.onload = function() {
        updatePlayerBack(1);
        createCONTENT();
        playervsplayer();
+        if (checkBoxes[3].length > 0){
+           nameTAG = document.getElementById("nameTAG");
+           nameTAG.textContent = checkBoxes[3];
+       }
+      var asd = "2:0";
    }
-
+function isSame(str){
+    if (str.match("[0-9]+:[0-9]+") != null){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
 
 function updatePlayerBack(vooru_nr){
     //loadib punktid, koef, suhte ja koha
@@ -332,7 +345,7 @@ function vahetaPlayeriks(){
 function playervsplayer(){
     //Järjestamisega tegeleb teine funktsioon, sellele antakse juba re-ordered list!!!!
     //Hiljem on taas vaja ümber sättida nii nagu on esimene list, sest uued andmed on sees.
-    if (vooru_nr == 4){
+    if (vooru_nr == 4 || fromLast == true){
         removeTableTWO();
         playerLst = playerLst.sort(suuremKuiTeine).reverse();
         updatePlayerBack(vooru_nr);
@@ -454,7 +467,7 @@ function makeHistory(names,values){
         var resCol = document.getElementsByClassName(tableCount+"_elem_1"); //array
         for (var j =0;j<names[i].length;j++){
             nameCol[j].textContent = names[i][j];
-            resCol[j].textContent = values[i][j+1].textContent;
+            resCol[j].textContent = values[i][j+1];
         }
     }
 }
@@ -475,7 +488,9 @@ function leiaPlayer(name){
 function calculatePoints(){
     //console.log("button clicked!");
     if (vooru_nr == 6){
-        alert("kuues voor");
+        localStorage.playerVal = JSON.stringify(playerLst);
+        window.onbeforeunload = null;
+        window.open("./8playoff.html",'_blank');
     }
     else if (vooru_nr == 5){
         //alert("viies voor");
@@ -483,8 +498,8 @@ function calculatePoints(){
         var taidetud = true;
         var c = 1;
         var fromRes = "";
-        for (var o = 0;o<resultCol.length;o++){
-            if (resultCol[o].textContent == ""){
+        for (var o = 1;o<resultCol.length;o++){
+             if (isSame(String(resultCol[o].textContent)) == false){
                 taidetud = false;
                 alert("Jätsid midagi sisestamata või sisestasid valel kujul: 'number:number'");
                 break;
@@ -589,12 +604,12 @@ function calculatePoints(){
             for (var i = 0; i<playerLst.length;i++){
                 playerLst[i].koht = i+1;
             }
+            localStorage.playerValues = JSON.stringify(playerLst);
             updatePlayerBack(vooru_nr);
             vooru_nr += 1;
             console.log(vooru_nr);
             var buttonGO = document.getElementById("edasi");
             buttonGO.textContent = "Playoff-i";
-            
             
             
         } //if taidetud == true endif
@@ -604,16 +619,20 @@ function calculatePoints(){
     else{
         var lastSTATE = jQuery.extend(true,[],playerLst); //see on eelmine state
         var firstCol = document.getElementsByClassName("2_elem_1");
-        lastValues.push(firstCol);
         var taidetud = true;
-        for (var o = 0;o<firstCol.length;o++){
-            if (firstCol[o].textContent == ""){
+        for (var o = 1;o<firstCol.length;o++){
+            if (isSame(String(firstCol[o].textContent)) == false){
                 taidetud = false;
                 alert("Jätsid midagi sisestamata või sisestasid valel kujul: 'number:number'");
                 break;
             }
         }
         if (taidetud == true){
+            var lisaArr = [];
+            for (var i = 0; i<firstCol.length; i++){
+                lisaArr.push(firstCol[i].textContent);
+            }
+            lastValues.push(lisaArr);
             //siin peaks olema add historyArray, sest kui vajutatakse nupule, siis liigutatakse esimese asjana vanad asjad historysse
             //lastnames ja lastValuesiga saame ehitada ülesse historyarray
             addHistoryRound(vooru_nr);
@@ -727,10 +746,13 @@ function calculatePoints(){
             updatePlayerBack(vooru_nr);
             removeTableTWO();
             createTableTwo();
+            localStorage.playerValues = JSON.stringify(playerLst);
             playervsplayer();
             vooru_nr += 1;
         }
     }
+    localStorage.roundNR = JSON.stringify(vooru_nr);
+    localStorage.freePlayers = JSON.stringify(olnudVabad);
 }
 
 function calculateKoef(){
@@ -1088,4 +1110,106 @@ function reastaArray(){
         }
     }
     return inPlay;
+}
+
+function createValArr(){
+    var returnVal = [];
+    for (var i = 0; i<lastValues.length;i++){
+        var valuesInArr = lastValues[i];
+        for (var j = 1; j<valuesInArr.length;j++){
+            returnVal.push(valuesInArr[j]);
+        }
+    }
+    return returnVal;
+}
+
+function createNameArr(){
+    var returnVal = [];
+    for (var i = 0; i<lastNames.length;i++){
+        var valuesInArr = lastNames[i];
+        for (var j = 0; j<lastNames.length;j++){
+            returnVal.push(valuesInArr[j]);
+        }
+    }
+    return returnVal;
+}
+
+function addValuesToPrev(names,values){
+    var nameCol = document.getElementsByClassName("10_elem_0");
+    var ValCol = document.getElementsByClassName("10_elem_1");
+    for (var i = 0; i<nameCol.length;i++){
+        nameCol[i].textContent = names[i];
+        ValCol[i].textContent = values[i];
+    }
+}
+
+function createPreviousGames(c,arr) {
+    var a, b, tableElem, rowElem, colElem;
+    var nameValues = localStorage.getItem("myValues") ? JSON.parse(localStorage.getItem("myValues")) : [];
+    var thingy = document.getElementById("historyDisp");
+    thingy.className = "setDisplay";
+    //a = document.getElementById('tb1').value;
+    //b = document.getElementById('tb2').value;
+    a = arr.length;
+    b = 2;
+
+    if (a == "" || b == "") {
+        alert("Please enter some numeric value");
+    } else {
+        tableElem = document.createElement('table');
+        tableElem.id = "history";
+        tableElem.className = "historyClass";
+        var countRIDA = 0;
+
+        for (var i = 0; i < a; i++) {
+            rowElem = document.createElement('tr');
+            rowElem.className = c+"_rida_"+i;
+
+            for (var j = 0; j < b; j++) {
+                colElem = document.createElement('td');
+                colElem.className = c+"_elem_"+j;
+                colElem.className += " boxboy_"+j;
+                rowElem.appendChild(colElem);
+            }
+
+            tableElem.appendChild(rowElem);
+            countRIDA += 1;
+        }
+
+        document.getElementById("historyTable").appendChild(tableElem);
+        
+
+    }
+}
+
+
+function loadLast(){
+    playerLst = localStorage.getItem("playerValues") ? JSON.parse(localStorage.getItem("playerValues")) : [];
+    vooru_nr = localStorage.getItem("roundNR") ? JSON.parse(localStorage.getItem("roundNR")) : [];
+    olnudVabad = localStorage.getItem("freePlayers") ? JSON.parse(localStorage.getItem("freePlayers")) : [];
+    lastNames = localStorage.getItem("lastNames") ? JSON.parse(localStorage.getItem("lastNames")) : [];
+    lastValues = localStorage.getItem("lastValues") ? JSON.parse(localStorage.getItem("lastValues")) : [];
+    var valueArr = createValArr();
+    var nameArr = createNameArr();
+    createPreviousGames(10,nameArr);
+    addValuesToPrev(nameArr,valueArr);
+    tableCount = 3;
+    lastNames = [];
+    lastValues = [];
+    console.log(vooru_nr);
+    updatePlayerBack(vooru_nr);
+    if (vooru_nr == 5){
+        fromLast = true;
+        playervsplayer();
+    }
+    else if(vooru_nr == 6){
+        removeTableTWO();
+        var buttonGO = document.getElementById("edasi");
+        buttonGO.textContent = "Playoff-i";
+    }
+    else{
+        removeTableTWO();
+        createTableTwo();
+        playervsplayer();
+    }
 }

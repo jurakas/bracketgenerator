@@ -18,7 +18,7 @@
     <link href="../css/swisspaaris.css" rel="stylesheet">
     
     <!-- PRINT-->
-    <link rel="stylesheet" type="text/css" href="../css/print.css" media="print">
+    <link rel="stylesheet" type="text/css" href="../css/swissprint.css" media="print">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -71,12 +71,18 @@
         
         <div class="sisaldaja">
             <div class="row">
+                <div class="myDivToPrint">
+                <div id="nameTAG" class="headtext">&nbsp</div>
                 <div id="tabelid">
                 <div id="tabel" class="peaTABEL"></div>
                 <br>
+                <div class="bt1">
                 <div id="voorutabel" class="korvalTABEL"></div>
+                </div>
+                </div>
                 <br>
-                <button class="btn btn-primary" onClick="calculatePoints()">Järjesta!</button> <button class="btn btn-danger" data-toggle="modal" data-target="#historyModal">Näita ajalugu!</button>
+                <div class="bt1">
+                <button class="btn btn-primary" id="edasi" onClick="calculatePoints()">Järjesta!</button> <button class="btn btn-danger" data-toggle="modal" data-target="#historyModal">Näita ajalugu!</button></div>
                 <br>
                 <div>
                 </div>
@@ -103,7 +109,7 @@
                         <h4 class="modal-title" id="myModalLabel"><i class="fa fa-cog" style="font-size:20px"></i> Mängude ajalugu.</h4>
                     </div>
                     <div class="modal-body">
-                        <div id="historyDisp">Esmalt võiksid mõned voorud läbi mängida, et siin midagi näha oleks..</div>
+                        <div id="historyDisp"><button type="button" onClick="loadLast()" class="btn btn-success">Laadi eelmine seanss</button></div>
                         <div id="historyTable"></div>
                     </div>
                     <div class="modal-footer">

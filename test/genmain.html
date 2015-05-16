@@ -71,7 +71,7 @@
     <!-- Page Content -->
     <div class="container">
         <!-- 1 -->
-        <div class="col-xs-5 bigBORDER">
+        <div class="col-lg-5 bigBORDER">
         <form method="POST" >
             <h4 style="font-family: Verdana; margin-bottom: 20px">Tabeligeneraator</h4>
             <table id="dynamicInput" class="tableStyle" style="display: inline-block">
@@ -102,7 +102,7 @@
             <button type="button" id='settingsButton' data-toggle="modal" data-target="#settingsModal"><i class="fa fa-cog" style="font-size:25px"></i></button>
        
         </div> 
-        <div class="col-xs-7">
+        <div class="col-xs-7 paremTab">
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     <h3 class="panel-title">Info</h3>
@@ -129,7 +129,6 @@
                                             <li>Sveitsi süsteemi tabelis sisesta alumisse tabelisse mängu tulemus kujul "number:number" näiteks, 5:0 või 13:2 jne. Pea meeles: kui mängivad Tiit vs Kevin, siis kujul 13:0 märkimisel on Tiit võitnud Kevinit 13:0</li>
                                             <li>Vajuta järjesta, kui oled sisestanud kõik nimed</li>
                                             <li>Kuvatakse järgmine voor!</li>
-                                            <li>Veateade <i>Valitud mängud ei pruugi olla enam parimas järjekorras</i> tähendab seda, et mängude leidmisel tekkis probleem ning mänge hakati otsima mitte ülevalt alla, vaid alt ülesse.</li>
                                         </ul>
                                     
                                     </li>
@@ -140,7 +139,7 @@
                                             <li>Eemaldada automaatselt edasisuunamist (kui mängija jääb esimeses voorus vabaks, siis lükatakse ta edasi järgmisesse ringi)</li>
                                             <li>Jooksutada testina</li>
                                             <li>Lisaleht, kus peal on voorud, et kes kellega mängima peab</li>
-                                            <li>Eemaldada back nupuga salvestatav nimecache (paljude tabelite loomise korral)</li>
+                                            <li>Lülitada välja nimede juhujärjestust.</li>
                                         </ul></li>
                                     <li>Kui valmis, siis vajuta nupule <button type="submit" id="btnFormSubmit" onClick="getElementArray('dynamicInput');return submitForm('radiobutton')"><i class="fa fa-check" style="font-size:18px"></i></button> ning sind suunatakse edasi juba sulle genereeritud tabelisse.</li>
                                 
@@ -149,6 +148,18 @@
                         <div class="tab-pane" id="tab2">
                             Versioonide muudatuste ajalugu. Varasemaid versioone on võimalik saada GITHUBist ning kasutada enda leheküljel.
                             <ul>
+                                <li><b>Version 2.1.0; 16. Mai 2015</b>
+                                    <ul>
+                                        <li>Tegin generaatori lehekülge mobiilisõbralikumaks</li>
+                                        <li>Sveitsi süsteem salvestab nüüd andmeid, õnnetuse korral võimalik taastada</li>
+                                        <li>Sveitsi süsteemi tabelile saab nime panna</li>
+                                        <li>Sveitsi süsteemi printimine ei ole enam väärakas</li>
+                                        <li>Enam ei saa valet sisendit panna, kui sisestada tulemust sveitsi süsteemis</li>
+                                        <br>
+                                        <li>Tulekul uuendused:</li>
+                                        <li>Salvestus PDFina</li>
+                                    </ul>
+                                </li>
                                 <br>
                                 <li><b>Version 2.0.0; 15. Mai 2015</b>
                                     <ul>
@@ -202,7 +213,8 @@
                                 <br>
                                 <li>Nimede sisestamisel kasuta F2-hte, et lisada uut tekstivälja. Kasutades nii TAB nuppu kui F2-hte pole hiirt vajagi</li>
                                 <li>Kui sulgesid kogemata tabeli ning oled hädas, siis tabel koos nimedega peaks sinu browseris säilima seni, kuni teed uue tabeli. Avades lingi kaudu, saad koheselt tagasi enda tabeli juurde. Tabelite juurde pääsemiseks soovitan kasutada <a href="http://kevin.planet.ee/tables/" target="_blank">seda lehekülge</a>. Siiski, pea meeles - Sveitsi süsteemi tabeli puhul tab-i sulgedes või eemale navigeerides kaob kogu sisestatud info tabelist ning säilivad vaid nimed.</li>
-                                <li>Veebileht ei ole serveripõhine ehk seda saab kasutada ka ilma interneti ühendust omamata. Selleks liigu minu GITHUB-i lehele, kust saad endale viimase töötava versiooni sellest rakendusest.</li>
+                                <li>Veebileht ei ole serveripõhine ehk seda saab kasutada ka ilma interneti ühendust omamata. Selleks liigu minu GITHUB-i lehele (või lae alla v2.0 <a href="http://kevin.planet.ee/files/v_2_0.rar">siit</a>), kust saad endale viimase töötava versiooni sellest rakendusest. Lehekülje kasutamiseks paki lahti kasutades tarkvara WinRar näiteks ning käivita index.html Avaneb see veebilehitsejas ning saad kasutada lehekülge täpselt nagu veebis.</li>
+                                <li>Sveitsi süsteemi tabelis säilivad ka andmed. Kui kasutaja peaks kogemata lehekülje sulgema või leheküljelt ära navigeerima, siis minnes tagasi täpselt samale leheküljele (st mitte läbi Generaator lingi, vaid otse lingist, viidates http://kevin.planet.ee/tables/tabelinimi.html. Peale tagasi navigeerimsit avage ajalugu ning vajutage rohelist nuppu.</li>
                                 
                             </ul>
                         </div>
@@ -225,7 +237,6 @@
                     <div class="modal-body">
                         <div data-toggle="popover" data-trigger="hover" title="Info" data-content="See valik töötab vaid grupitabelite puhul ehk milline oleks optimaalne mängude järjekord, et tabel kokku ei jookseks!"><input type="checkbox" id="addTable" value""> Lisa voorutabel #TODO<br></div>
                         <input type="checkbox" id="autoforwardOFF" value""> Lülita automaatne edasilükkamine välja<br>
-                        <input type="checkbox" id="brokenOFF" value""> Lülita veateadete kuvamine välja #TODO<br>
                         <input type="checkbox" id="shuffleOFF" value""> Lülita nimede juhujärjestus välja<br>
                         <div data-toggle="popover" data-trigger="hover" title="Info" data-content="Selle valiku tegemisel ei arvestata Sinu sisestatud nimesid, tegemist on testimisvalikuga, peamiselt suurte tabelite jaoks (grupitabelitel ei tööta)"><input type="checkbox" id="runasTEST" value""> Jooksuta testina <br></div>
                         <input type="checkbox" id="emptyTABLE" value""> Tühjad tabelid <br>

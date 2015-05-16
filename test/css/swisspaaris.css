@@ -78,3 +78,11 @@ tr{
 .right{
     border-right: 1px solid #000;
 }
+
+.headtext{
+    font-weight: bold;
+    font-size: 25px;
+    font-family: "Verdana";
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
