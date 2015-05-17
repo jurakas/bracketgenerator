@@ -28,6 +28,12 @@
     <![endif]-->
     <script src="../js/jquery.min.js"></script>
     <script src="../js/swisspaaritu.js"></script>
+    <script type="text/javascript" src="../js/jspdf/plugins/FileSaver.js"></script>
+    <script type="text/javascript" src="../js/jspdf/jsPDF.js"></script>
+    <script type="text/javascript" src="../js/jspdf/libs/png_support/zlib.js"></script>
+    <script type="text/javascript" src="../js/jspdf/libs/png_support/png.js"></script>
+    <script type="text/javascript" src="../js/jspdf/plugins/addimage.js"></script>
+    <script type="text/javascript" src="../js/jspdf/plugins/png_support.js"></script>
 </head>
 
 <body>
@@ -86,7 +92,7 @@
         <!-- Footer -->
         <footer>
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-12" id="copyright">
                     <p>Copyright &copy; Kevin Kattai, Valga Piljardiklubi & Valga Petanque klubi, 2015</p>
                 </div>
             </div>
@@ -104,10 +110,12 @@
                     </div>
                     <div class="modal-body">
                         <div id="historyDisp"><button type="button" onClick="loadLast()" class="btn btn-success">Laadi eelmine seanss</button></div>
-                        <div id="historyTable"></div>
+                        <div id="historyTable" class="myDivToPrint"></div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+                        <button type="button" class="btn btn-danger" onClick="tryThis()">Loo PDF</button>
+                        <button type="button" class="btn btn-danger" id="btnPrint" onClick="doPrint()">Prindi tabelid</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" onClick="removePrintSection()">OK</button>
                     </div>
                 </div>
             </div>
@@ -119,6 +127,12 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="../js/bootstrap.min.js"></script>
 
+    
+    <script src="../js/swissprint.js"></script>
+    
+    <script src="../js/html2canvas.js"></script>
+    
+    <div id="notShown" style="display: none"></div>
 </body>
 
 </html>

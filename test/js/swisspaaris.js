@@ -372,6 +372,12 @@ function isSame(str){
 
 //kui checked, siis tolle jaoks üldse uus funktsioon mida button välja callib
 function calculatePoints(){
+    if (vooru_nr == 1){
+        console.log("first click");
+        tyhilist = [];
+        localStorage.lastValues =  JSON.stringify(tyhilist);
+        localStorage.lastNames = JSON.stringify(tyhilist);
+    }
     if (vooru_nr == 7){
         localStorage.playerVal = JSON.stringify(playerLst);
         window.onbeforeunload = null;
@@ -821,7 +827,7 @@ function createNameArr(){
     var returnVal = [];
     for (var i = 0; i<lastNames.length;i++){
         var valuesInArr = lastNames[i];
-        for (var j = 0; j<lastNames.length;j++){
+        for (var j = 0; j<valuesInArr.length;j++){
             returnVal.push(valuesInArr[j]);
         }
     }

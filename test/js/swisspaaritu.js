@@ -9,6 +9,7 @@ var inThisFunc = 1;
 var olnudVabad = [];
 var fromLast = false;
 
+
 function continueCheck(){
     var checkbox = document.getElementById("turnoffalgorithm");
     var state = checkbox.checked;
@@ -412,6 +413,7 @@ function playervsplayer(){
 
         }
         lastNames.push(resArr);
+        localStorage.lastNames = JSON.stringify(lastNames);
         arrayForCalc.push(viimaneEl);
         playerLst = arrayForCalc;
     }
@@ -487,6 +489,11 @@ function leiaPlayer(name){
 //kui checked, siis tolle jaoks üldse uus funktsioon mida button välja callib
 function calculatePoints(){
     //console.log("button clicked!");
+    if (vooru_nr == 1){
+        tyhilist = [];
+        localStorage.lastValues =  JSON.stringify(tyhilist);
+        localStorage.lastNames = JSON.stringify(tyhilist);
+    }
     if (vooru_nr == 6){
         localStorage.playerVal = JSON.stringify(playerLst);
         window.onbeforeunload = null;
@@ -607,7 +614,6 @@ function calculatePoints(){
             localStorage.playerValues = JSON.stringify(playerLst);
             updatePlayerBack(vooru_nr);
             vooru_nr += 1;
-            console.log(vooru_nr);
             var buttonGO = document.getElementById("edasi");
             buttonGO.textContent = "Playoff-i";
             
@@ -633,6 +639,7 @@ function calculatePoints(){
                 lisaArr.push(firstCol[i].textContent);
             }
             lastValues.push(lisaArr);
+            localStorage.lastValues =  JSON.stringify(lastValues);
             //siin peaks olema add historyArray, sest kui vajutatakse nupule, siis liigutatakse esimese asjana vanad asjad historysse
             //lastnames ja lastValuesiga saame ehitada ülesse historyarray
             addHistoryRound(vooru_nr);
@@ -1127,7 +1134,7 @@ function createNameArr(){
     var returnVal = [];
     for (var i = 0; i<lastNames.length;i++){
         var valuesInArr = lastNames[i];
-        for (var j = 0; j<lastNames.length;j++){
+        for (var j = 0; j<valuesInArr.length;j++){
             returnVal.push(valuesInArr[j]);
         }
     }
@@ -1196,7 +1203,6 @@ function loadLast(){
     tableCount = 3;
     lastNames = [];
     lastValues = [];
-    console.log(vooru_nr);
     updatePlayerBack(vooru_nr);
     if (vooru_nr == 5){
         fromLast = true;

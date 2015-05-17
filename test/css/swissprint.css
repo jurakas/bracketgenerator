@@ -1,10 +1,9 @@
-@media print {
+/*@media print {
     @page {size: landscape;
          margin: 0mm;
     
     }
     .myDivToPrint {
-       /* background-color: white;*/
         height: 99%;
         width: 100%;
         top: 0;
@@ -18,4 +17,52 @@
         display: none;
     }
     
+    body * {
+    visibility:hidden;
+  }
+  #printSection, #printSection * {
+    visibility:visible;
+  }
+  #printSection {
+    position:absolute;
+    left:0;
+    top:0;
+  }
+    
+}*/
+
+@media screen {
+  #printSection {
+      display: none;
+      visibility: hidden;
+  }
+}
+
+@media print {
+    @page {size: landscape;
+         margin: 0mm;
+    
+    }
+    
+    .myDivToPrint {
+        height: 99%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        margin: 10mm;
+        font-size: 12px;
+        line-height: 18px;
+    }
+    
+  body * {
+    visibility:hidden;
+  }
+  #printSection, #printSection * {
+    visibility:visible;
+  }
+  #printSection {
+    position:absolute;
+    left:0;
+    top:0;
+  }
 }
